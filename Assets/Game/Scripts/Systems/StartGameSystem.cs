@@ -4,11 +4,10 @@ using UnityEngine.EventSystems;
 
 namespace Zlodey
 {
-    internal class StartGameSystem : IEcsRunSystem
+	public sealed class StartGameSystem : IEcsRunSystem
     {
-        private RuntimeData _runtimeData;
-        private EcsWorld _world;
-        
+        private readonly RuntimeData _runtimeData;
+        private readonly EcsWorld _world;
         public void Run()
         {
             if (_runtimeData.GameState == GameState.Before)

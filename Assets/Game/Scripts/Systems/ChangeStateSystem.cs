@@ -1,10 +1,12 @@
 ﻿using System;
+using Game.Scripts.Components;
 using Leopotam.Ecs;
 using UnityEngine;
+using AnimationEvent = Game.Scripts.Components.AnimationEvent;
 
 namespace Zlodey
 {
-    class ChangeStateSystem : IEcsRunSystem
+	class ChangeStateSystem : IEcsRunSystem
     {
         private UI _ui;
         private EcsFilter<ChangeStateEvent> _filter;
@@ -13,8 +15,10 @@ namespace Zlodey
         private RuntimeData _runtimeData;
         private SceneData _sceneData;
         private EcsWorld _world;
-        
-        public void Run()
+
+
+		private readonly EcsFilter<MoverActorRef> _filterMovers;
+		public void Run()
         {
             foreach (var i in _filter)
             {
@@ -25,21 +29,27 @@ namespace Zlodey
                     case GameState.Before:
                         _ui.MenuScreen.Show(true);
                         _ui.MenuScreen.Level.text = $"Level {_runtimeData.Level + 1}";
-                        
                         _ui.GameScreen.Show(false);
                         break;
                     case GameState.Playing:
-                        _runtimeData.LevelStartedTime = Time.realtimeSinceStartup;
+
+                        InitActors();
+                        PlayActorsAnim(AnimationType.Move);
+
+						_runtimeData.LevelStartedTime = Time.realtimeSinceStartup;
                         
+
                         _ui.MenuScreen.Show(false);
-                        
                         _ui.GameScreen.Level.text = $"Level {_runtimeData.Level + 1}";
                         _ui.GameScreen.Show(true);
                         break;
                     case GameState.Win:
                         Progress.CurrentLevel++;
-                        
-                        _ui.GameScreen.Show(false);
+
+
+						PlayActorsAnim(AnimationType.Win);
+
+						_ui.GameScreen.Show(false);
                         _ui.WinScreen.Show(true);
                         break;
                     default:
@@ -47,6 +57,23 @@ namespace Zlodey
                 }
                 _filter.GetEntity(i).Destroy();
             }
+        }
+
+        private void PlayActorsAnim(AnimationType type)
+        {
+	        foreach (var i in _filterMovers)
+	        {
+		        var entity = _filterMovers.GetEntity(i);
+		        entity.Get<AnimationEvent>().value = type;
+	        }
+        }
+        private void InitActors()
+        {
+	        foreach (var sceneDataActor in _sceneData.Actors)
+	        {
+		        sceneDataActor.Init();
+		        sceneDataActor.Construct();
+	        }
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using Game.Scripts.Components;
 using Leopotam.Ecs;
 using LeopotamGroup.Globals;
 using UnityEngine;
@@ -26,7 +27,6 @@ namespace Zlodey
             Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create(_systems);
 #endif
 
-
             _runtimeData = new RuntimeData();
 
             ServiceInject();
@@ -37,12 +37,23 @@ namespace Zlodey
                 .Add(new InitializeSystem())
                 .Add(new ChangeStateSystem())
                 .Add(new StartGameSystem())
-                
-                //test systems
-                //remove in real project
-                .Add(new ExampleGameSystem())
 
-                // inject 
+                .Add(new EnemyZoneSystem())
+                .Add(new DiedSystem())
+                .Add(new WinSystem())
+
+
+                .Add(new SplineMoveSystem())
+                .Add(new MoveSystem())
+                .Add(new HelpSystem())
+                .Add(new AnimationMoverSystem())
+                .Add(new DeformationPositionSystem())
+                .Add(new PaintSystem())
+                .Add(new EditPositionMoveSystem())
+                
+
+                .OneFrame<OnTriggerEnterEvent>()
+
                 .Inject(_sceneData)
                 .Inject(_runtimeData)
                 .Inject(_staticData)

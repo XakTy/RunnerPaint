@@ -2,11 +2,12 @@
 
 namespace Zlodey
 {
-    class InitializeSystem : IEcsInitSystem
+    public sealed class InitializeSystem : IEcsInitSystem
     {
-        private UI _ui;
-        private EcsWorld _world;
-        private RuntimeData _runtimeData;
+        private readonly UI _ui;
+        private readonly EcsWorld _world;
+        private readonly RuntimeData _runtimeData;
+        private readonly SceneData _sceneData;
 
         public void Init()
         {
@@ -14,8 +15,18 @@ namespace Zlodey
             _runtimeData.Level = Progress.CurrentLevel;
             _world.ChangeState(GameState.Before);
 
-            //todo continue intialization logic
+            _runtimeData.Lenght = _sceneData.Spline.CalculateLength();
 
+            _sceneData.SplineActor.Init(_world);
+            _sceneData.SplineActor.Construct();
+            _sceneData.PaintActor.Init(_world);
+            _sceneData.PaintActor.Construct();
+
+            foreach (var entityActor in _sceneData.ActorsEntity)
+            {
+	            entityActor.Init(_world);
+	            entityActor.Construct();
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Zlodey
 {
-    struct ChangeStateEvent
+	struct ChangeStateEvent
     {
         public GameState NewGameState;
     }

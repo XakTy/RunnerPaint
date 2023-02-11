@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Zlodey
 {
@@ -10,5 +11,9 @@ namespace Zlodey
         public float LevelStartedTime;
 
         public float deltaTime;
+
+        public float Lenght;
+
+        public MaterialPropertyBlock Block;
     }
 }

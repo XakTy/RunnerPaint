@@ -12,6 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 600bc6ef5f0f8d0488c476d36ebd88a4, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
-  Levels: {fileID: 0}
-  UI: {fileID: 0}
+  Levels: {fileID: 11400000, guid: 3a8f6ac0684a8f743a198dbb0d81b985, type: 2}
+  UI: {fileID: 7450354084709068278, guid: 667ff98e594a25748bff81da940189b0, type: 3}
   TimeToWinLevel: 1
+  RangeX: {x: -2, y: 3}
+  RangeZ: {x: -2, y: 2}
+  DelayWin: 1
+  BasicSpeedCharacters: -4
+  SpeedEditPosition: 6
+  Resolution: 0.001
+  prefabLine: {fileID: 7028418773554448972, guid: 6a7975200a0cd28478e22d42a9ddb1f8, type: 3}
+  YellowMaterial: {fileID: 2100000, guid: b8387b7799efe14419aee41311937b89, type: 2}
+  DiedMaterial: {fileID: 2100000, guid: 418bc1add29aac74fa6486e24e3a5f06, type: 2}
+  HelpParticle: {fileID: 19873882, guid: ce90a5909cc1f7f49865904e3c751f81, type: 3}
+  DiedParticle: {fileID: 19825214, guid: 57611c2489302734bbd6fa8a1ed9eae5, type: 3}
