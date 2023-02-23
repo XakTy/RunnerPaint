@@ -18,12 +18,14 @@ namespace Zlodey
 			{
 				var points = _filter.Get1(i).value;
 				bool noPlace = true;
+				int indexPos = 0;
 
 				for (int j = 0; j < points.Count; j++)
 				{
 					if (j == _filterMover.GetEntitiesCount())
 					{
 						noPlace = false;
+						indexPos = j;
 						break;
 					}
 
@@ -33,7 +35,7 @@ namespace Zlodey
 
 				if (noPlace)
 				{
-					GetNewPosition(points);
+					GetNewPosition(points[indexPos]);
 				}
 
 
@@ -52,10 +54,9 @@ namespace Zlodey
 			return pos;
 		}
 
-		private void GetNewPosition(List<Vector2> points)
+		private void GetNewPosition(Vector2 point)
 		{
-			var index = points.Count - 1;
-			var pos = CalcalutePosition(points[index]);
+			var pos = CalcalutePosition(point);
 
 			foreach (var i in _filterMoverChecker)
 			{

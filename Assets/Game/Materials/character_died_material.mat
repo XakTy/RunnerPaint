@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: character_died_material
-  m_Shader: {fileID: 4800000, guid: 8302807d5c3d34f85a1cfdcde75e1871, type: 3}
+  m_Shader: {fileID: 4800000, guid: 630b07f1142b0473fbb4a366f4ac637c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -95,10 +95,10 @@ Material:
     - _ZWrite: 1
     - __dummy__: 0
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.3301887, g: 0.3286312, b: 0.3286312, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+    - _HColor: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
     - _RimColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0.6}
-    - _SColor: {r: 0.461, g: 0.461, b: 0.461, a: 1}
+    - _SColor: {r: 0.41799998, g: 0.41799998, b: 0.41799998, a: 1}
     - _SpecColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   m_BuildTextureStacks: []

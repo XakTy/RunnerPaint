@@ -14,6 +14,8 @@ namespace Zlodey
 		{
 			if (!CanAppend(pos)) return;
 
+			Debug.Log("add");
+
 			_points.Add(transform.parent.InverseTransformPoint(pos));
 			_renderer.positionCount++;
 			_renderer.SetPosition(_renderer.positionCount - 1, pos);

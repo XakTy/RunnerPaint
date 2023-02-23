@@ -20,7 +20,7 @@ MonoBehaviour:
   DelayWin: 1
   BasicSpeedCharacters: -4
   SpeedEditPosition: 6
-  Resolution: 0.001
+  Resolution: 0.2
   prefabLine: {fileID: 7028418773554448972, guid: 6a7975200a0cd28478e22d42a9ddb1f8, type: 3}
   YellowMaterial: {fileID: 2100000, guid: b8387b7799efe14419aee41311937b89, type: 2}
   DiedMaterial: {fileID: 2100000, guid: 418bc1add29aac74fa6486e24e3a5f06, type: 2}

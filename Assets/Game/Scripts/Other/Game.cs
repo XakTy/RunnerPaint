@@ -45,7 +45,11 @@ namespace Zlodey
 
                 .Add(new SplineMoveSystem())
                 .Add(new MoveSystem())
+                //.Add(new TestExistSystem())
                 .Add(new HelpSystem())
+
+                .Add(new HelpSystemEvent())
+
                 .Add(new AnimationMoverSystem())
                 .Add(new DeformationPositionSystem())
                 .Add(new PaintSystem())

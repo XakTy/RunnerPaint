@@ -1,5 +1,7 @@
 ﻿using Game.Scripts.Components;
 using Leopotam.Ecs;
+using LeopotamGroup.Globals;
+using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 
@@ -11,23 +13,19 @@ namespace Zlodey
 		public Collider Collider;
 		private void OnTriggerEnter(Collider other)
 		{
-			if (other.TryGetComponent<AnalyzeTrigger>(out var entityActor))
+			if (other.TryGetComponent<AnalyzeTrigger>(out var analyze))
 			{
-				if (Actor.Entity.IsAlive())
+				if (Actor.Entity.IsAlive() && analyze.Actor.Entity.IsAlive())
 				{
-					Actor.Entity.Get<OnTriggerEnterEvent>() = new OnTriggerEnterEvent()
-					{
-						EnterEntity = entityActor.Actor.Entity,
-						Collider = entityActor.Collider,
-					};
-				}
+					var newTriggerEvent = Service<EcsWorld>.Get().NewEntity();
 
-				if (entityActor.Actor.Entity.IsAlive())
-				{
-					entityActor.Actor.Entity.Get<OnTriggerEnterEvent>() = new OnTriggerEnterEvent()
+					newTriggerEvent.Get<OnTriggerEnterEvent>() = new OnTriggerEnterEvent()
 					{
-						EnterEntity = Actor.Entity,
-						Collider = Collider,
+						EntityA = Actor.Entity,
+						EntityB = analyze.Actor.Entity,
+
+						ColliderA = Collider,
+						ColliderB = other,
 					};
 				}
 

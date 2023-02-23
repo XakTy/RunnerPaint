@@ -7,7 +7,7 @@ namespace Zlodey
 {
 	public abstract class EntityActor : MonoBehaviour
 	{
-		private EcsEntity _entity;
+		[SerializeField] private EcsEntity _entity;
 		public EcsEntity Entity => _entity;
 		
 		public void Init(EcsWorld world)

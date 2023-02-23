@@ -8,6 +8,7 @@ namespace Zlodey
 	public sealed class PaintSystem : IEcsRunSystem, IEcsInitSystem
 	{
 		private readonly EcsFilter<PaintWindowRef> _filter;
+		private readonly EcsFilter<CharacterTag> _filterMover;
 		private PaintWindow _paint;
 		private readonly RuntimeData _runtimeData;
 		private readonly StaticData _staticData;

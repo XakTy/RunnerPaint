@@ -1,21 +1,36 @@
-﻿using Game.Scripts.Components;
+﻿using System;
+using Game.Scripts.Components;
 using Leopotam.Ecs;
+using System.Collections.Generic;
 
 namespace Zlodey
 {
 	public sealed class EnemyZoneSystem : IEcsRunSystem
 	{
-		private readonly EcsFilter<EnemyTag, TransformRef, OnTriggerEnterEvent> _filter;
+		private readonly EcsFilter<OnTriggerEnterEvent> _filter;
 		public void Run()
 		{
 			foreach (var i in _filter)
 			{
-				var entityTrigger = _filter.Get3(i);
-				if (entityTrigger.EnterEntity.Has<CharacterTag>())
+				ref var entityTrigger = ref _filter.Get1(i);
+				var entity = _filter.GetEntity(i);
+
+				if (entityTrigger.EntityA.Has<CharacterTag>() && entityTrigger.EntityB.Has<EnemyTag>())
 				{
-					var transform = _filter.Get2(i).value;
-					entityTrigger.EnterEntity.Get<DiedEventZone>().value = transform;
+					entityTrigger.EntityA.Get<DiedEventZone>();
+
+					entity.Destroy();
+					continue;
 				}
+
+				if (entityTrigger.EntityB.Has<CharacterTag>() && entityTrigger.EntityA.Has<EnemyTag>())
+				{
+					entityTrigger.EntityB.Get<DiedEventZone>();
+
+					entity.Destroy();
+					continue;
+				}
+
 			}
 		}
 	}

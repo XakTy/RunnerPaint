@@ -20,13 +20,17 @@ PrefabInstance:
       propertyPath: Actor
       value: 
       objectReference: {fileID: 418073177176752338}
+    - target: {fileID: 4989887000141117023, guid: dfad74ee79088f44080d3e9609ffd9e9, type: 3}
+      propertyPath: Collider
+      value: 
+      objectReference: {fileID: 639951079581530665}
     - target: {fileID: 6993286606900820649, guid: dfad74ee79088f44080d3e9609ffd9e9, type: 3}
       propertyPath: m_Name
-      value: Entity_help (14)
+      value: Entity_help
       objectReference: {fileID: 0}
     - target: {fileID: 7052490687391122491, guid: dfad74ee79088f44080d3e9609ffd9e9, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7052490687391122491, guid: dfad74ee79088f44080d3e9609ffd9e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -78,9 +82,19 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 418073177176752338}
   m_SourcePrefab: {fileID: 100100000, guid: dfad74ee79088f44080d3e9609ffd9e9, type: 3}
+--- !u!136 &639951079581530665 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 2936641515874592147, guid: dfad74ee79088f44080d3e9609ffd9e9, type: 3}
+  m_PrefabInstance: {fileID: 2315021713329037242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2315021714971216159 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1852298917, guid: dfad74ee79088f44080d3e9609ffd9e9, type: 3}
+  m_PrefabInstance: {fileID: 2315021713329037242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &2944331122151648573 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 647610655917142663, guid: dfad74ee79088f44080d3e9609ffd9e9, type: 3}
   m_PrefabInstance: {fileID: 2315021713329037242}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &4696619883190478099 stripped
@@ -102,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 2315021714971216159}
   Renderer: {fileID: 7185982888782680711}
+  Controller: {fileID: 2944331122151648573}
 --- !u!137 &7185982888782680711 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4870966969901665597, guid: dfad74ee79088f44080d3e9609ffd9e9, type: 3}

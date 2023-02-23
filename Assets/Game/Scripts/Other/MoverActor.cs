@@ -10,9 +10,11 @@ namespace Zlodey
 	{
 		public Animator Animator;
 		public Renderer Renderer;
+		public CharacterController Controller;
 		public override void Construct()
 		{
 			Entity.Get<CharacterTag>();
+			Entity.Get<CharacterControllerRef>().value = Controller;
 			Entity.Get<RendereRef>().value = Renderer;
 			Entity.Get<MoverActorRef>().value = this;
 			Entity.Get<AnimatorRef>().value = Animator;

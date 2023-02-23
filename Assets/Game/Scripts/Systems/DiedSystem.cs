@@ -20,12 +20,16 @@ namespace Zlodey
 				animator.speed = 0f;
 
 				var render = _filter.Get4(i).value;
-				render.materials[0].SetColor(StaticData.Color, _staticData.DiedMaterial.color);
+				var materials = render.materials;
+				materials[0] = _staticData.DiedMaterial;
+				render.materials = materials;
+
 
 				Object.Instantiate(_staticData.DiedParticle, transform.position, Quaternion.identity);
 
 				var entity = _filter.GetEntity(i);
-				entity.Destroy();
+				entity.Del<CharacterTag>();
+				entity.Del<DiedEventZone>();
 			}
 		}
 	}
